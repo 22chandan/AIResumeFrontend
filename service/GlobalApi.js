@@ -1,13 +1,16 @@
 const CreateNewResume = async (data) => {
   try {
     console.log("Creating new resume with data", data);
-    const response = await fetch("http://192.168.10.42:3000/api/user-resumes", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data.data),
-    });
+    const response = await fetch(
+      "https://resumebuilderbackend-rd9i.onrender.com/api/user-resumes",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data.data),
+      }
+    );
 
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
@@ -23,7 +26,7 @@ const CreateNewResume = async (data) => {
 const GetUserResumes = async (userEmail) => {
   try {
     const response = await fetch(
-      `http://192.168.10.42:3000/api/getuserresumes/?email=${userEmail}`,
+      `https://resumebuilderbackend-rd9i.onrender.com/api/getuserresumes/?email=${userEmail}`,
       {
         method: "GET",
         headers: {
@@ -40,7 +43,7 @@ const GetUserResumes = async (userEmail) => {
 const UpdateResumeDetail = async (id, data) => {
   try {
     const response = await fetch(
-      `http://192.168.10.42:3000/api/updateresume/?id=${id}`,
+      `https://resumebuilderbackend-rd9i.onrender.com/api/updateresume/?id=${id}`,
       {
         method: "GET",
         headers: {
@@ -58,7 +61,7 @@ const UpdateResumeDetail = async (id, data) => {
 const GetResumeById = async (id) => {
   try {
     const response = await fetch(
-      `http://192.168.10.42:3000/api/getresume/?id=${id}`,
+      `https://resumebuilderbackend-rd9i.onrender.com/api/getresume/?id=${id}`,
       {
         method: "GET",
         headers: {
@@ -75,7 +78,7 @@ const GetResumeById = async (id) => {
 const DeleteResumeById = (id) => {
   try {
     const response = fetch(
-      `http://192.168.10.42:3000/api/deleteresume/?id=${id}`,
+      `https://resumebuilderbackend-rd9i.onrender.com/api/deleteresume/?id=${id}`,
       {
         method: "POST",
         headers: {
