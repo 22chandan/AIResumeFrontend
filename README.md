@@ -93,9 +93,3 @@ Make sure you have the following installed:
 
     Open your browser and go to `http://localhost:3000` to see the app in action.
 
-## License
-This project is licensed under the MIT License - see the LICENSE file for details.
-
----
-
-This version includes a separate link for the backend repository. Let me know if you need any more changes!
