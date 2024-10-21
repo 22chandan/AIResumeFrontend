@@ -21,10 +21,10 @@ function AddResume() {
   const { user } = useUser();
   const [loading, setLoading] = useState(false);
   const navigation = useNavigate();
+  const uuid = uuidv4();
   const onCreate = async () => {
     setLoading(true);
     console.log("Creating new resume");
-    const uuid = uuidv4();
     const data = {
       data: {
         title: resumeTitle,
@@ -39,7 +39,6 @@ function AddResume() {
         console.log(resp.resumeId);
         if (resp) {
           setLoading(false);
-          navigation("/dashboard/resume/" + resp.resumeId + "/edit");
         }
       },
       (error) => {
@@ -79,7 +78,9 @@ function AddResume() {
               </Button>
               <Button
                 disabled={!resumeTitle || loading}
-                onClick={() => onCreate()}
+                onClick={() => {
+                  navigation("/dashboard/resume/" + uuid + "/edit");
+                }}
               >
                 {loading ? <Loader2 className="animate-spin" /> : "Create"}
               </Button>
